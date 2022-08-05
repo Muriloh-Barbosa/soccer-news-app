@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
-}
+
+   }
 
 android {
     compileSdk 32
@@ -26,7 +27,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildFeatures {
-        viewBinding true
+        viewBinding =  true
     }
 }
 
@@ -35,10 +36,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
-    implementation 'androidx.navigation:navigation-fragment:2.5.0'
-    implementation 'androidx.navigation:navigation-ui:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-fragment:2.5.1'
+    implementation 'androidx.navigation:navigation-ui:2.5.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Reference: https://github.com/square/retorfit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -47,9 +49,36 @@ dependencies {
     // Reference: https://github.com/square/picasso
     implementation 'com.squareup.picasso:picasso:2.8'
 
+    // Reference: https://developer.android.com/training/data-storage/room
+    implementation "androidx.room:room-runtime:2.4.3"
+    implementation "androidx.room:room-common:2.4.3"
+    implementation 'androidx.room:room-testing:2.4.3'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    annotationProcessor "androidx.room:room-compiler:2.4.3"
+
 
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // optional - RxJava2 support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    // optional - Paging 3 Integration
+    implementation "androidx.room:room-paging:$room_version"
 }
